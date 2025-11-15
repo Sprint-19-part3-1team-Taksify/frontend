@@ -60,29 +60,56 @@ npm run dev
 
 ```
 📦 project
-├── 📂 public                    # 정적 파일 (이미지, 폰트 등)
-│   ├── 📂 images
-│   ├── 📂 fonts
-│   └── favicon.ico
-├── 📂 src
-│   ├── 📂 pages                 # Next.js 페이지 라우팅
-│   ├── 📂 components            # 재사용 가능한 컴포넌트
-│   │   ├── 📂 common            # 공통 컴포넌트
-│   │   ├── 📂 layout            # 레이아웃 컴포넌트
-│   │   └── 📂 domain            # 도메인별 컴포넌트
-│   ├── 📂 hooks                 # Custom Hooks
-│   ├── 📂 lib                   # 외부 라이브러리 설정
-│   ├── 📂 api                   # API 호출 함수
-│   ├── 📂 store                 # 상태 관리
-│   ├── 📂 utils                 # 유틸리티 함수
-│   └── 📂 styles                # 전역 스타일
-├── .env.local                   # 환경 변수
-├── .eslintrc.json               # ESLint 설정
-├── .gitignore
-├── next.config.js               # Next.js 설정
-├── package.json
-├── jsconfig.json                # JavaScript 설정 (경로 alias 등)
-└── README.md
+├── .eslintrc.json # ESLint 규칙 (React Hooks 룰 포함)
+├── .prettierrc # Prettier 코드 포맷 규칙
+├── .gitignore # Git 제외 파일
+├── package.json # 프로젝트 의존성 목록
+├── next.config.mjs # Next.js 설정 파일 (이미지 도메인 등)
+├── README.md # 프로젝트 설명
+│
+├── public # ⭐ 정적 파일 폴더 (필수)
+│ ├── images # UI에서 쓰는 이미지
+│ └── fonts # 커스텀 폰트 (Pretendard, NotoSans 등)
+│
+└── src
+├── app # ⭐ Next.js 13의 App Router
+│ ├── layout.js # 전체 레이아웃 (전역 스타일로드)
+│ └── page.js # 메인 페이지
+│
+├── components # 공통 UI 컴포넌트
+│ └── common
+│ └── Header.jsx
+│
+├── features # 기능 단위 Feature Layer
+│ ├── auth
+│ │ └── AuthButton.jsx
+│ ├── board
+│ │ ├── BoardContainer.jsx
+│ │ └── dnd-utils.js
+│ └── upload
+│ └── ImageUploader.jsx
+│
+├── services # API 계층 (axios)
+│ ├── axiosInstance.js
+│ ├── authAPI.js
+│ ├── boardAPI.js
+│ └── uploadAPI.js
+│
+├── styles # SCSS 스타일 폴더
+│ ├── globals.scss # 글로벌 스타일
+│ ├── variables.scss # SCSS 변수
+│ ├── mixins.scss # 공통 mixin
+│ └── components # 컴포넌트 전용 SCSS
+│ └── button.scss
+│
+├── constants # 상수 관리
+│ └── endpoints.js
+│
+├── lib # 유틸 함수 모음
+│ └── utils.js
+│
+└── types # 타입 관리
+└── index.js
 ```
 
 ## 🔗 API 문서
